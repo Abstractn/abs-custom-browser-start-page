@@ -4,6 +4,27 @@
     <title>abs-custom-browser-start-page--test</title>
   </head>
   <body>
-    <iframe src="https://www.google.com/search?hl=en&q=meteo%20assemini" width="700" height="400"></iframe>
   </body>
+  <script>
+    function test() {
+      //const weatherApiBaseUrl = 'http://api.weatherapi.com/v1/forecast.json';
+      //const weatherApiParams = 'key=9b33d5eb16b648eab4f144457232002&q=39.2888846,9.0039813&days=4&aqi=no&alerts=no';
+      /*const weatherApiParams = {
+        key: '9b33d5eb16b648eab4f144457232002',
+        q: '39.2888846,9.0039813',
+        days: '4',
+        aqi: 'no',
+        alerts: 'no'
+      };*/
+      
+      const weatherApiCompleteUrl = 'http://api.weatherapi.com/v1/forecast.json?key=9b33d5eb16b648eab4f144457232002&q=39.2888846,9.0039813&days=4&aqi=no&alerts=no';
+      fetch(weatherApiCompleteUrl).then((response) => {
+        console.log(response);
+      });
+    }
+    
+    function init() {
+      test();
+    }init();
+  </script>
 </html>
