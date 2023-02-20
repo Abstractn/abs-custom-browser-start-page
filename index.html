@@ -17,7 +17,7 @@
         alerts: 'no'
       };*/
       
-      const weatherApiCompleteUrl = 'http://api.weatherapi.com/v1/forecast.json?key=9b33d5eb16b648eab4f144457232002&q=39.2888846,9.0039813&days=4&aqi=no&alerts=no';
+      const weatherApiCompleteUrl = 'https://api.weatherapi.com/v1/forecast.json?key=9b33d5eb16b648eab4f144457232002&q=39.2888846,9.0039813&days=4&aqi=no&alerts=no';
       fetch(weatherApiCompleteUrl).then((response) => {
         console.log(response);
       });
