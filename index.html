@@ -2,8 +2,33 @@
   <head>
     <!-- TODO edit -->
     <title>abs-custom-browser-start-page--test</title>
+
+    <link rel="stylesheet" type="text/css" href="https://abstractn.github.io/repo/abs.css">
+    <script src="https://abstractn.github.io/repo/abs.js"></script>
+    <script src="https://kit.fontawesome.com/e97eac13ba.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/dayjs.min.js" integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js" integrity="sha512-9rxMbTkN9JcgG5euudGbdIbhFZ7KGyAuVomdQDI9qXfPply9BJh0iqA7E/moLCatH2JD4xBGHwV6ezBkCpnjRQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
+    <main>
+      <div class="bookmarks">bookmarks</div>
+      <div class="weather-widget">
+        <div class="weather-widget-tabs">
+          <button class="weather-widget-tab active">
+            <i class="fas fa-temperature-half"></i>
+          </button>
+          <button class="weather-widget-tab">
+            <i class="fas fa-cloud-rain"></i>
+          </button>
+          <button class="weather-widget-tab">
+            <i class="fas fa-wind"></i>
+          </button>
+        </div>
+        <div class="weather-chart weather-chart-temperatures"></div>
+      </div>
+    </main>
   </body>
   <script src="mock.js"></script>
   <script src="main.js"></script>
