@@ -4,32 +4,41 @@
     <title>abs-custom-browser-start-page--test</title>
 
     <link rel="stylesheet" type="text/css" href="https://abstractn.github.io/repo/abs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css">
+    <link rel="stylesheet" type="text/css" href="src/components/weather/weather.component.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    
     <script src="https://abstractn.github.io/repo/abs.js"></script>
     <script src="https://kit.fontawesome.com/e97eac13ba.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/dayjs.min.js" integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js" integrity="sha512-9rxMbTkN9JcgG5euudGbdIbhFZ7KGyAuVomdQDI9qXfPply9BJh0iqA7E/moLCatH2JD4xBGHwV6ezBkCpnjRQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" type="text/css" href="main.css">
   </head>
+
   <body>
     <main>
       <div class="bookmarks">bookmarks</div>
-      <div class="weather-widget">
+      <div class="weather-widget" data-component="weather">
         <div class="weather-widget-tabs">
           <button class="weather-widget-tab active">
-            <i class="fas fa-temperature-half"></i>
+            <i class="fas fa-temperature-half weather-widget-tab-icon"></i>
           </button>
           <button class="weather-widget-tab">
-            <i class="fas fa-cloud-rain"></i>
+            <i class="fas fa-cloud-rain weather-widget-tab-icon"></i>
           </button>
           <button class="weather-widget-tab">
-            <i class="fas fa-wind"></i>
+            <i class="fas fa-wind weather-widget-tab-icon"></i>
           </button>
         </div>
         <div class="weather-chart weather-chart-temperatures"></div>
       </div>
     </main>
   </body>
+
   <script src="mock.js"></script>
+  <script src="src/enums.js"></script>
+  <script src="src/interfaces.js"></script>
+  <script src="src/utils.js"></script>
+  <script src="src/components/_componentManager/_componentManager.js"></script>
+  <script src="src/components/weather/weather.component.js"></script>
   <script src="main.js"></script>
 </html>
