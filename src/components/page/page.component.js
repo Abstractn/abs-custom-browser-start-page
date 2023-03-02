@@ -5,8 +5,9 @@ var Page = function () {
   }
   
   this._ready = () => {
-    //const randomlIndex = randomIntegerFromRange(0, BACKGROUND_IMAGES_URL.length-1);
-    this.node.style.backgroundImage = `url(${BACKGROUND_IMAGES_URL[6]})`;
+    const randomlIndex = randomIntegerFromRange(0, BACKGROUND_IMAGES_URL.length-1);
+    this.node.style.backgroundImage = `url(${BACKGROUND_IMAGES_URL[randomlIndex]})`;
+    //this.node.style.backgroundImage = `url(${BACKGROUND_IMAGES_URL[6]})`;
   }
 }
 componentManager.registerComponent('page', Page);
