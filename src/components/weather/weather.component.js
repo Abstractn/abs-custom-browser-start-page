@@ -41,8 +41,10 @@ var Weather = function () {
 
   /**
    * @param {WeatherServiceResponse} responseData
+   * @returns {ChartData}
   */
   this.processWeatherResponse = (responseData) => {
+    /** @type {ChartData} */
     let chartData = {
       temperatures: {
         labels: [],
@@ -67,7 +69,7 @@ var Weather = function () {
         const hourTemperature = hour.temp_c;
         const hourHumidity = hour.humidity;
         const hourWindDirection = hour.wind_degree;
-        const hourWindSpeed = hour.wind_kps;
+        const hourWindSpeed = hour.wind_kph;
         chartData.labels.push(dayjs(hourTimestamp).format('HH'));
         chartData.dataset.push(Math.floor(hourTemperature));
       });
@@ -78,7 +80,7 @@ var Weather = function () {
       const hourTemperature = hour.temp_c;
       const hourRain = hour.chance_of_rain;
       const hourWindDirection = hour.wind_degree;
-      const hourWindSpeed = hour.wind_kps;
+      const hourWindSpeed = hour.wind_kph;
 
       chartData.temperatures.labels.push(dayjs(hourTimestamp).format('HH'));
       chartData.temperatures.dataset.push(Math.floor(hourTemperature));
@@ -165,7 +167,14 @@ var Weather = function () {
       series: [selectedChartDatasetFromMode.dataset]
     }, WEATHER_CHART_CONFIG);
   }
-  
+
+  /**
+   * 
+  */
+  this.printWindsChart = (chartData) => {
+
+  }
+
   this.assignButtonEvents = () => {
     const weatherButtons = this.node.querySelectorAll('.weather-widget .weather-widget-tab');
     weatherButtons.forEach(button => {
