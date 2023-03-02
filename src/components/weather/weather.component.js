@@ -3,6 +3,7 @@ var Weather = function () {
     this.node = componentNode;
     this.chartNode = this.node.querySelector('.weather-chart');
     this.chartMode = WeatherChartMode.TEMP;
+    this.chartData = {};
     return this;
   }
   
@@ -33,8 +34,8 @@ var Weather = function () {
         console.error('weather service error: ', response);
       }
     }).then((data) => {
-      const chartData = this.processWeatherResponse(data);
-      this.printChart(chartData, WeatherChartMode.TEMP);
+      this.chartData = this.processWeatherResponse(data);
+      this.printChart(this.chartData, this.chartMode);
     });
   }
 
@@ -162,78 +163,24 @@ var Weather = function () {
       ], */
       labels: selectedChartDatasetFromMode.dataset,
       series: [selectedChartDatasetFromMode.dataset]
-    }, {
-      axisX: {
-        //offset: 0,
-        //showLabel: false,
-        showGrid: false,
-        labelOffset: {
-          x: 0,
-          y: -150,
-        },
-      },
-      axisY: {
-        offset: 0,
-        showLabel: false,
-        showGrid: false,
-      },
-      low: 0,
-      showArea: true,
-      showPoint: false,
-      //lineSmooth: Chartist.Interpolation.cardinal({ tension: 1 }),
-      //width: '100%',
-      //height: '100%',
-      lineSmooth: true,
-      chartPadding: {
-        top: 0,
-        right: 0,
-        bottom: -30,
-        left: 0
-      },
-      fullWidth: true,
-    });
-  
-    setTimeout(()=>{
-      /* const svgNode = document.querySelector('.weather-chart .ct-chart-line');
-      const defNode = document.createElement('defs'); */
-  
-      /* const linearGradientNode = document.createElement('linearGradient');
-      linearGradientNode.setAttribute('id', 'weather-temperature-background-gradient');
-      linearGradientNode.setAttribute('x1', '0%');
-      linearGradientNode.setAttribute('x2', '0%');
-      linearGradientNode.setAttribute('y1', '100%');
-      linearGradientNode.setAttribute('y2', '100%');
-      const stopNodeStart = document.createElement('stop');
-      stopNodeStart.setAttribute('offset', '0%');
-      stopNodeStart.setAttribute('style', 'stop-color:rgb(255,255,0);stop-opacity:1');
-      const stopNodeEnd = document.createElement('stop');
-      stopNodeEnd.setAttribute('offset', '100%');
-      stopNodeEnd.setAttribute('style', 'stop-color:rgb(255,0,0);stop-opacity:1');
-      linearGradientNode.appendChild(stopNodeStart);
-      linearGradientNode.appendChild(stopNodeEnd);
-      defNode.appendChild(linearGradientNode); */
-  
-      /* defNode.innerHTML = `
-        <linearGradient id="weather-temperature-background-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1"></stop>
-          <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1"></stop>
-        </linearGradient>
-      `; */
-  
-      /* svgNode.prepend(defNode);
-      document.querySelector('.ct-line').setAttribute('fill', 'url(#weather-temperature-background-gradient)'); */
-    },0);
+    }, WEATHER_CHART_CONFIG);
   }
   
   this.assignButtonEvents = () => {
     const weatherButtons = this.node.querySelectorAll('.weather-widget .weather-widget-tab');
     weatherButtons.forEach(button => {
       button.addEventListener('click', (event) => {
+        const eventNode = event.target;
         const activeButton = this.node.querySelector('.weather-widget .weather-widget-tab.active');
         activeButton.classList.remove('active');
-        event.target.classList.add('active');
+        eventNode.classList.add('active');
+        this.chartMode = eventNode.getAttribute('data-chart-mode');
+        this.chartNode.setAttribute('data-chart-mode', this.chartMode);
+        if(this.chartMode === WeatherChartMode.WIND) {
 
-        //TODO switch chart mode
+        } else {
+          this.printChart(this.chartData, this.chartMode);
+        }
       });
     });
   }

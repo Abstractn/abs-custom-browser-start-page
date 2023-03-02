@@ -1,24 +1,16 @@
 :root {
   --weather-widget-tab--border-radius: 10px;
+  --chart-animation-duration: .2s;
 }
 
 * {
   box-sizing: border-box;
 }
 
-body { /* TODO */
-  background-image: url(https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg);
-  background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg);
-  background-image: url(https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg);
-  
-  background-image: url();
-  background-image: url(https://images.pexels.com/photos/3374210/pexels-photo-3374210.jpeg);
-  background-image: url(https://images.pexels.com/photos/3591557/pexels-photo-3591557.jpeg);
-  background-image: url(https://images.pexels.com/photos/1254736/pexels-photo-1254736.jpeg);
-  background-image: url(https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg);
-
+body {
   background-position: center;
   background-size: cover;
+  /* background-image is set from JS */
 }
 
 main {

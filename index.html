@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="https://abstractn.github.io/repo/abs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css">
     <link rel="stylesheet" type="text/css" href="src/components/weather/weather.component.css">
+    <link rel="stylesheet" type="text/css" href="src/components/bookmarks/bookmarks.component.css">
+    <link rel="stylesheet" type="text/css" href="src/components/searchbar/searchbar.component.css">
     <link rel="stylesheet" type="text/css" href="main.css">
     
     <script src="https://abstractn.github.io/repo/abs.js"></script>
@@ -14,31 +16,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js" integrity="sha512-9rxMbTkN9JcgG5euudGbdIbhFZ7KGyAuVomdQDI9qXfPply9BJh0iqA7E/moLCatH2JD4xBGHwV6ezBkCpnjRQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
 
-  <body>
+  <body data-component="page">
     <main>
-      <div class="bookmarks">bookmarks</div>
+      <div class="bookmarks">
+        <div class="searchbar-wrapper" data-component="searchbar">
+          <input type="text" class="searchbar">
+        </div>
+      </div>
       <div class="weather-widget" data-component="weather">
         <div class="weather-widget-tabs">
-          <button class="weather-widget-tab active">
+          <button class="weather-widget-tab active" data-chart-mode="weather-chart-temperatures">
             <i class="fas fa-temperature-half weather-widget-tab-icon"></i>
           </button>
-          <button class="weather-widget-tab">
+          <button class="weather-widget-tab" data-chart-mode="weather-chart-rains">
             <i class="fas fa-cloud-rain weather-widget-tab-icon"></i>
           </button>
-          <button class="weather-widget-tab">
+          <button class="weather-widget-tab" data-chart-mode="weather-chart-winds">
             <i class="fas fa-wind weather-widget-tab-icon"></i>
           </button>
         </div>
-        <div class="weather-chart weather-chart-temperatures"></div>
+        <div class="weather-chart" data-chart-mode="weather-chart-temperatures"></div>
       </div>
     </main>
   </body>
 
+  <script src="src/consts.js"></script>
+  <script src="src/configs.js"></script>
   <script src="mock.js"></script>
   <script src="src/enums.js"></script>
   <script src="src/interfaces.js"></script>
   <script src="src/utils.js"></script>
   <script src="src/components/_componentManager/_componentManager.js"></script>
+  <script src="src/components/page/page.component.js"></script>
   <script src="src/components/weather/weather.component.js"></script>
+  <script src="src/components/searchbar/searchbar.component.js"></script>
   <script src="main.js"></script>
 </html>

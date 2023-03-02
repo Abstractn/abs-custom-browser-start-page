@@ -59,16 +59,31 @@
 
 .ct-label {
   color: #ccc;
-  /* font-weight: bold; */
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 20px;
   justify-content: center !important;
+  text-shadow:
+    2px 0 0 black, 
+    -2px 0 0 black,
+    0 2px 0 black, 
+    0 -2px 0 black,
+    1px 1px black,
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black;
+  transition: opacity var(--chart-animation-duration);
+  opacity: .1;
 }
 
-.weather-chart.weather-chart-temperatures .ct-line { stroke: #FFCC00FF; }
-.weather-chart.weather-chart-temperatures .ct-area { fill: #FFCC0020; fill-opacity: 1; }
+.weather-widget:hover .ct-label {
+  opacity: 1;
+}
 
-.weather-chart.weather-chart-rains .ct-line { stroke: #8AB4F8FF; }
-.weather-chart.weather-chart-rains .ct-area { fill: #8AB4F820; fill-opacity: 1; }
+.weather-chart[data-chart-mode=weather-chart-temperatures] .ct-line { stroke: #FFCC00FF; }
+.weather-chart[data-chart-mode=weather-chart-temperatures] .ct-area { fill: #FFCC0020; fill-opacity: 1; }
+
+.weather-chart[data-chart-mode=weather-chart-rains] .ct-line { stroke: #8AB4F8FF; }
+.weather-chart[data-chart-mode=weather-chart-rains] .ct-area { fill: #8AB4F820; fill-opacity: 1; }
 
 /* TODO .weather-chart.weather-chart-winds */
 

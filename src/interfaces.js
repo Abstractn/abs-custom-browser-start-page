@@ -33,6 +33,4 @@
  *    @property {number} forecast.forecastday.hour.will_it_rain
  *    @property {number} forecast.forecastday.hour.chance_of_rain
  *    @property {number} forecast.forecastday.hour.will_it_snow
- * 
- * 
  */
