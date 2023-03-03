@@ -2,6 +2,9 @@ var Weather = function () {
   this._init = (componentNode) => {
     this.node = componentNode;
     this.chartNode = this.node.querySelector('.weather-chart');
+    this.windsChartNode = this.node.querySelector('.weather-chart-winds');
+    this.windsChartIconsWrapperNode = this.node.querySelector('.weather-chart-winds--icons');
+    this.windsChartLabelsWrapperNode = this.node.querySelector('.weather-chart-winds--labels');
     this.chartMode = WeatherChartMode.TEMP;
     this.chartData = {};
     return this;
@@ -99,7 +102,7 @@ var Weather = function () {
   }
   
   /**
-   * @param {any} chartData
+   * @param {ChartData} chartData
    * @param {WeatherChartMode} chartMode
   */
   this.printChart = (chartData, chartMode) => {
@@ -169,10 +172,22 @@ var Weather = function () {
   }
 
   /**
-   * 
+   * @param {ChartData} chartData
   */
   this.printWindsChart = (chartData) => {
+    console.log(chartData.winds.dataset);
 
+    chartData.winds.dataset.forEach(hour => {
+      hour.speed;
+      hour.direction;
+
+      this.windsChartIconsWrapperNode.innerHTML = '';
+      this.windsChartLabelsWrapperNode.innerHTML = '';
+
+      //TODO generate arrow-icon nodes
+      //TODO apply variable icon size with some sort of equation and css scaling
+      //TODO rotate arrow icon with css transform:rotate() using {hour.direction} degrees
+    });
   }
 
   this.assignButtonEvents = () => {
@@ -186,8 +201,10 @@ var Weather = function () {
         this.chartMode = eventNode.getAttribute('data-chart-mode');
         this.chartNode.setAttribute('data-chart-mode', this.chartMode);
         if(this.chartMode === WeatherChartMode.WIND) {
-
+          this.windsChartNode.classList.add('active');
+          this.printWindsChart(this.chartData);
         } else {
+          this.windsChartNode.classList.remove('active');
           this.printChart(this.chartData, this.chartMode);
         }
       });

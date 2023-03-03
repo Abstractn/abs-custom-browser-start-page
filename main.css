@@ -1,5 +1,6 @@
 :root {
   --weather-widget-tab--border-radius: 10px;
+  --weather-chart-height: 150px;
   --chart-animation-duration: .2s;
 }
 
@@ -11,6 +12,8 @@ body {
   background-position: center;
   background-size: cover;
   /* background-image is set from JS */
+  min-height: 100vh;
+  overflow-y: hidden;
 }
 
 main {

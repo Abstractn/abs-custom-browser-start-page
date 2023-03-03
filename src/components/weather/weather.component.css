@@ -41,7 +41,7 @@
   height: 120px;
 
   width: 100%;
-  height: 150px;
+  height: var(--weather-chart-height);
   position: relative;
   /* background: linear-gradient(transparent -50%, #333333 50%); */
 }
@@ -85,7 +85,17 @@
 .weather-chart[data-chart-mode=weather-chart-rains] .ct-line { stroke: #8AB4F8FF; }
 .weather-chart[data-chart-mode=weather-chart-rains] .ct-area { fill: #8AB4F820; fill-opacity: 1; }
 
-/* TODO .weather-chart.weather-chart-winds */
+.weather-chart[data-chart-mode=weather-chart-winds]       { display: none; }
+.weather-chart:not([data-chart-mode=weather-chart-winds]) { display: initial; }
+
+.weather-chart-winds {
+  display: none;
+  height: var(--weather-chart-height);
+}
+
+.weather-chart-winds.active {
+  display: block;
+}
 
 .weather-widget-tab-icon {
   pointer-events: none;
